@@ -11,12 +11,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    receiver.cpp \
-    harmankardonavr654receiver.cpp
+	mainwindow.cpp \
+	receiver.cpp \
+	HarmanKardonAVR645Receiver.cpp
 
 HEADERS  += mainwindow.h \
-    receiver.h \
-    harmankardonavr654receiver.h
+	receiver.h \
+	HarmanKardonAVR645Receiver.h
 
 FORMS    += mainwindow.ui
+
+LIBS	+= -lqextserialport
