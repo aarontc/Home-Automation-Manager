@@ -24,7 +24,7 @@ void HarmanKardonAVR645Receiver::serialRead() {
 	QByteArray bytes;
 	int a = port->bytesAvailable();
 	bytes.resize(a);
-	port->read(bytes.data(), bytes.size());
+    d(bytes.data(), bytes.size());
 
 	qDebug() << "Got" << bytes;
 }

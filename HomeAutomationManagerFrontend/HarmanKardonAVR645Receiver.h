@@ -4,6 +4,7 @@
 #include "receiver.h"
 
 #include <qextserialport.h>
+#include <QQueue>
 
 class HarmanKardonAVR645Receiver : public Receiver {
 	Q_OBJECT
@@ -19,6 +20,7 @@ class HarmanKardonAVR645Receiver : public Receiver {
 
 	private:
 		QextSerialPort* port;
+        QQueue<quint8> inputQueue;
 
 };
 
