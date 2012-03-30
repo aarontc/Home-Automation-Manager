@@ -9,19 +9,24 @@
 class HarmanKardonAVR645Receiver : public Receiver {
 	Q_OBJECT
 	public:
+		static const char COMMAND_POWER_ON[];
+		static const char COMMAND_POWER_OFF[];
+		static const char COMMAND_VOLUME_UP[];
+		static const char COMMAND_VOLUME_DOWN[];
+
 		explicit HarmanKardonAVR645Receiver(QObject* parent = 0);
 
 	signals:
+		void UpdateReceived(QByteArray line1, QByteArray line2, QByteArray icons);
 
 	public slots:
+		void SendCommand(QByteArray command);
 
 	private slots:
 		void serialRead();
 
 	private:
 		QextSerialPort* port;
-        QQueue<quint8> inputQueue;
-
 };
 
 #endif // HARMANKARDONAVR645RECEIVER_H
