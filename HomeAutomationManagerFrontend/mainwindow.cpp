@@ -25,6 +25,12 @@ MainWindow::MainWindow(QWidget *parent) :
 		exit (1);
 	  }
 
+	xosd_set_font (osd, "-adobe-helvetica-bold-r-normal-*-*-320-*-*-p-*-*");
+	xosd_set_pos (osd, XOSD_bottom);
+	xosd_set_align (osd, XOSD_center);
+	xosd_set_vertical_offset(osd, 120);
+	xosd_set_timeout(osd, 5);
+
 }
 
 MainWindow::~MainWindow()
@@ -34,9 +40,18 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::ReceiverStatus(QByteArray line1, QByteArray line2, QByteArray icons) {
-	ui->lineEdit->setText(line1);
-	ui->lineEdit_2->setText(line2);
-	xosd_display (osd, 0, XOSD_string, "You have been R00ted");
+	static QByteArray line1s;
+	static QByteArray line2s;
+
+	if(line1s != line1 || line2s != line2) {
+		ui->lineEdit->setText(line1);
+		ui->lineEdit_2->setText(line2);
+		xosd_display(osd, 0, XOSD_string, line1.data());
+		xosd_display(osd, 1, XOSD_string, line2.data());
+
+		line1s = line1;
+		line2s = line2;
+	}
 }
 
 void MainWindow::on_pushButton_clicked()
