@@ -1,13 +1,15 @@
 #ifndef HARMANKARDONAVR645RECEIVER_H
 #define HARMANKARDONAVR645RECEIVER_H
 
-#include "receiver.h"
+//#include "IReceiver.h"
 
 #include <qextserialport.h>
 #include <QQueue>
 
-class HarmanKardonAVR645Receiver : public Receiver {
+class HarmanKardonAVR645Receiver : public QObject/*, public IReceiver*/ {
 	Q_OBJECT
+	//Q_INTERFACES(IReceiver)
+
 	public:
 		static const char COMMAND_POWER_ON[];
 		static const char COMMAND_POWER_OFF[];

@@ -7,9 +7,7 @@ const char HarmanKardonAVR645Receiver::COMMAND_POWER_OFF[] = { 0x80, 0x70, 0x9F,
 const char HarmanKardonAVR645Receiver::COMMAND_VOLUME_UP[] = { 0x80, 0x70, 0xC7, 0x38 };
 const char HarmanKardonAVR645Receiver::COMMAND_VOLUME_DOWN[] = { 0x80, 0x70, 0xC8, 0x37 };
 
-HarmanKardonAVR645Receiver::HarmanKardonAVR645Receiver(QObject* parent)
-	: Receiver(parent)
-{
+HarmanKardonAVR645Receiver::HarmanKardonAVR645Receiver(QObject* parent) {
 
 	this->port = new QextSerialPort("/dev/ttyUSB0", QextSerialPort::EventDriven);
 	port->setBaudRate(BAUD38400);
