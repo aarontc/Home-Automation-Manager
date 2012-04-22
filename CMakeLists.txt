@@ -50,15 +50,15 @@ else()
 endif()
 
 include_directories(.)
-add_subdirectory("HomeAutomationManager")
+add_subdirectory("HomeAutomation")
 add_subdirectory("Backend")
 add_subdirectory("Frontend")
 add_subdirectory("Tests")
 
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/ReadMe.txt")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Home Automation Manager")
-set(CPACK_PACKAGE_EXECUTABLES "WirelessStickiesApplication" "Wireless Stickies")
-set(CPACK_PACKAGE_INSTALL_DIRECTORY "MadeByAI Software\\\\WirelessStickies")
+set(CPACK_PACKAGE_EXECUTABLES "HomeAutomationFrontend" "Home Automation Frontend")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "MadeByAI Software\\\\HomeAutomation")
 
 set(CPACK_PACKAGE_VENDOR "MadeByAI Software")
 set(CPACK_PACKAGE_VERSION_MAJOR "${ProjectVersion_Major}")
@@ -71,11 +71,11 @@ set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
 if(WIN32 AND NOT UNIX)
 	# There is a bug in NSI that does not handle full unix paths properly. Make
 	# sure there is at least one set of four (4) backlasshes.
-	set(CPACK_PACKAGE_ICON "${CMAKE_CURRENT_SOURCE_DIR}/WirelessStickiesApplication/Resources/Icons\\\\MainIcon.png")
-	set(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\WirelessStickiesApplication.exe")
-	set(CPACK_NSIS_DISPLAY_NAME "Wireless Stickies")
-	set(CPACK_NSIS_HELP_LINK "https://redmine.techtonium.com/projects/wireless-stickies")
-	set(CPACK_NSIS_URL_INFO_ABOUT "https://redmine.techtonium.com/projects/wireless-stickies")
+	set(CPACK_PACKAGE_ICON "${CMAKE_CURRENT_SOURCE_DIR}/Frontend/Resources/Icons\\\\MainIcon.png")
+	set(CPACK_NSIS_INSTALLED_ICON_NAME "bin\\\\HomeAutomationFrontend.exe")
+	set(CPACK_NSIS_DISPLAY_NAME "Home Automation Frontend")
+	set(CPACK_NSIS_HELP_LINK "https://redmine.techtonium.com/projects/home-automation")
+	set(CPACK_NSIS_URL_INFO_ABOUT "https://redmine.techtonium.com/projects/home-automation")
 	set(CPACK_NSIS_CONTACT "madebyai@madebyai.com")
 	set(CPACK_NSIS_MODIFY_PATH ON)
 else()
@@ -86,10 +86,10 @@ include(CPack)
 # add a target to generate API documentation with Doxygen
 find_package(Doxygen)
 if(DOXYGEN_FOUND AND NOT Skip_Doxygen)
-	configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
+	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in" "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile" @ONLY)
 	add_custom_target(Documentation ALL
-		${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
-		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+		"${DOXYGEN_EXECUTABLE}" "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
+		WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 		COMMENT "Generating API documentation with Doxygen" VERBATIM
 	)
 endif()

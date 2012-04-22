@@ -27,7 +27,7 @@ qt4_wrap_cpp(Core_Sources ${Core_Headers})
 qt4_wrap_ui(Core_Form_Headers ${Core_Forms})
 
 add_library(
-	HomeAutomationManager
+	HomeAutomation
 	STATIC
 
 	${Core_Sources}

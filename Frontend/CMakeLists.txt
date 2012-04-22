@@ -35,22 +35,22 @@ endif()
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(
-	HomeAutomationManagerFrontend
+	HomeAutomationFrontend
 	WIN32
 	${Frontend_Sources}
 )
 
 target_link_libraries(
-	HomeAutomationManagerFrontend
+	HomeAutomationFrontend
 
-	HomeAutomationManager
+	HomeAutomation
 	qextserialport-1.2
 	xosd
 
 	${QT_LIBRARIES}
 )
 
-install(TARGETS HomeAutomationManagerFrontend RUNTIME DESTINATION bin)
+install(TARGETS HomeAutomationFrontend RUNTIME DESTINATION bin)
 
 if(WIN32)
 	install(FILES

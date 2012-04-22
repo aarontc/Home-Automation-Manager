@@ -27,20 +27,20 @@ qt4_wrap_cpp(Backend_Sources ${Backend_Headers})
 
 
 add_executable(
-	HomeAutomationManagerBackend
+	HomeAutomationBackend
 	WIN32
 	${Backend_Sources}
 )
 
 target_link_libraries(
-	HomeAutomationManagerBackend
+	HomeAutomationBackend
 
-	HomeAutomationManager
+	HomeAutomation
 
 	${QT_LIBRARIES}
 )
 
-install(TARGETS HomeAutomationManagerBackend RUNTIME DESTINATION bin)
+install(TARGETS HomeAutomationBackend RUNTIME DESTINATION bin)
 
 if(WIN32)
 	install(FILES
