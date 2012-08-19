@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
 		exit (1);
 	  }
 
-	xosd_set_font (osd, "-adobe-helvetica-bold-r-normal-*-*-320-*-*-p-*-*");
+	xosd_set_font (osd, "-adobe-helvetica-bold-r-normal-*-*-640-*-*-p-*-*");
 	xosd_set_pos (osd, XOSD_bottom);
 	xosd_set_align (osd, XOSD_center);
 	xosd_set_vertical_offset(osd, 120);
@@ -72,4 +72,9 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_pushButton_4_clicked()
 {
 	emit(ReceiverCommand(HarmanKardonAVR645Receiver::COMMAND_VOLUME_DOWN));
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+	xosd_display(osd, 0, XOSD_string, "Test OSD display...");
 }
