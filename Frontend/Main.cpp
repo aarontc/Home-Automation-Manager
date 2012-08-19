@@ -1,7 +1,7 @@
 #include <QtGui/QApplication>
-#include "mainwindow.h"
+#include "MainWindow.h"
 
-#include "HarmanKardonAVR645Receiver.h"
+#include <HomeAutomation/HarmanKardonAVR645Receiver.h>
 
 int main(int argc, char *argv[])
 {

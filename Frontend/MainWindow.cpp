@@ -1,7 +1,7 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "MainWindow.h"
+#include "ui_MainWindow.h"
 
-#include "HarmanKardonAVR645Receiver.h"
+#include <HomeAutomation/HarmanKardonAVR645Receiver.h>
 
 #include <stdio.h>
 #include <stdlib.h>
