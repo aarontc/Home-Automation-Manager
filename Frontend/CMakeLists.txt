@@ -44,7 +44,7 @@ target_link_libraries(
 	HomeAutomationFrontend
 
 	HomeAutomation
-	qextserialport-1.2
+	qextserialport
 	xosd
 
 	${QT_LIBRARIES}
